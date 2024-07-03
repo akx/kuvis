@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+      <label>
+        <span>Choose an image file:</span>
+        <input type="file" name="file" accept="image/*" />
+      </label>
+      <label>
+        <span>Title:</span>
+        <input type="text" name="title" />
+      </label>
+
+      <input type="submit" value="Upload" />
+    </form>
+    <hr />
+    <div id="uploads">
+      {% for upload in uploads %}
+      <div class="upload">
+        <h2>{{ upload.name }}</h2>
+        <a href="{{ upload.url }}">
+          <img src="{{ upload.url }}" />
+        </a>
+        <ul class="meta">
+          {% for key, value in upload.meta.items()|sort %}
+          <li>{{ key }}: {{ value }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+body {
+  font-family: -apple-system, blinkmacsystemfont, "segoe ui", roboto, sans-serif;
+}
+
+#uploads {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 95vw;
+}
+
+#upload-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#upload-form label {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr 2fr;
+}
+
+.upload {
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.upload img {
+  display: block;
+  max-width: 500px;
+}
